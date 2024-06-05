@@ -32,8 +32,9 @@ bool advance(Planets &planet,
     time.display();
 
   if (input.get_is_student())
-    report.print(-1, "(1) What function is this " +
-                 input.get_student_name() + "?");
+    report.student_checker_function_name(input.get_is_student(),
+                                         input.get_student_name(),
+                                         1, "abc");
 
   if (didWork & input.get_check_for_nans())
     didWork = neutrals.check_for_nonfinites();

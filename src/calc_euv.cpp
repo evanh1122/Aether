@@ -31,8 +31,9 @@ bool calc_euv(Planets planet,
   report.enter(function, iFunction);
 
   if (input.get_is_student())
-    report.print(-1, "(2) What function is this " +
-                 input.get_student_name() + "?");
+    report.student_checker_function_name(input.get_is_student(),
+                                         input.get_student_name(),
+                                         2, "def");
 
   // Chapman integrals for EUV energy deposition:
   // Need chapman integrals for aurora too!

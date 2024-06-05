@@ -313,7 +313,7 @@ void Report::student_checker_function_name(bool isStudent,
       print(-1, cStudentName + " found function " + cFunctionName);
     else
       std::cout << "> (" << iFunctionNumber << ")"
-                << " What function is this " << cStudentName << "?\n";
+                << " What function is this " << cStudentName << "? Found it!\n";
   }
 
   return;

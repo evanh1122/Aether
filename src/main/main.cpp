@@ -107,20 +107,21 @@ int main() {
       gGrid.calc_cent_acc(planet);
 
     // Initialize Magnetic grid:
-    Grid mGrid(nMagLonsG, nMagLatsG, nMagAltsG, nMagGhosts);
-    mGrid.init_dipole_grid(quadtree, planet);
+    //Grid mGrid(nMagLonsG, nMagLatsG, nMagAltsG, nMagGhosts);
+    //mGrid.init_dipole_grid(quadtree, planet);
 
     // Initialize Neutrals on geographic grid:
     Neutrals neutrals(gGrid, planet, time, indices);
     // Initialize Neutrals on magnetic grid:
     //Neutrals neutralsMag(mGrid, planet, time, indices);
+
     // Initialize Neutrals on experimental grid:
     Neutrals neutralsTest(testGrid, planet, time, indices);
 
 
     // Initialize Ions on geographic grid:
     Ions ions(gGrid, planet);
-    // Initialize Ions on magnetic grid:
+    // Initialize Ions on test grid:
     Ions ionsTest(testGrid, planet);
 
     // -----------------------------------------------------------------
@@ -152,8 +153,11 @@ int main() {
 
     // Initialize ion temperatures from neutral temperature
     ions.init_ion_temperature(neutrals, gGrid);
-    // Initialize ion temperatures from neutral temperature (on Mag Grid)
+    // Initialize ion temperatures from neutral temperature (on Test Grid)
     ionsTest.init_ion_temperature(neutralsTest, testGrid);
+
+    //if (neutrals.temperature_scgc.at(20) == neutralsTest.temperature_scgc.at(20)) std::cout << "EQUAL!!" << endl << endl;
+    std::cout << iGrid << endl << endl;
 
     // Initialize electrodynamics and check if electrodynamics times
     // works with input time

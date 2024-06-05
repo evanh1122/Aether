@@ -82,7 +82,7 @@ bool output(const Neutrals &neutrals,
 
   report.student_checker_function_name(input.get_is_student(),
                                        input.get_student_name(),
-                                       3, "");
+                                       3, "ghi");
 
   for (int iOutput = 0; iOutput < nOutputs; iOutput++) {
 
