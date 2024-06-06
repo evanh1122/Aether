@@ -62,7 +62,6 @@ bool init_parallel(Quadtree &quadtree) {
   int nBlocksLonGeo = pow(2, quadtree.max_depth); // input.get_nBlocksLonGeo();
   int nBlocksLatGeo = pow(2, quadtree.max_depth); // input.get_nBlocksLatGeo();
   nGrids = nBlocksLonGeo * nBlocksLatGeo * quadtree.nRootNodes;
-  std::cout << nGrids;
   int nProcsNeeded = nMembers * nGrids;
 
   if (nProcsNeeded == nProcs) {

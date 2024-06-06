@@ -1,7 +1,7 @@
 // Copyright 2020, the Aether Development Team (see doc/dev_team.md for members)
 // Full license can be found in License.md
 
-#include "../include/aether.h"
+#include "../../include/aether.h"
 #include <cassert>
 
 // Run with the following settings:
@@ -88,7 +88,7 @@ int main() {
       report.print(-1, "Hello " +
 		   input.get_student_name() + " - welcome to Aether!");
 
-    Quadtree quadtree;
+    Quadtree quadtree("GeoGrid");
     if (!quadtree.is_ok())
       throw std::string("quadtree initialization failed!");
     
@@ -125,9 +125,9 @@ int main() {
     MPI_Barrier(aether_comm);
     
     // Initialize Geographic grid:
-    Grid gGrid(input.get_nLonsGeo(),
-	       input.get_nLatsGeo(),
-	       input.get_nAltsGeo(),
+    Grid gGrid(input.get_nLons("GeoGrid"),
+	       input.get_nLats("GeoGrid"),
+	       input.get_nAlts("GeoGrid"),
 	       nGeoGhosts);
     DidWork = gGrid.init_geo_grid(quadtree, planet);
     MPI_Barrier(aether_comm);

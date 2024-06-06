@@ -73,7 +73,7 @@ int main() {
     if (!input.is_ok())
       throw std::string("input initialization failed!");
     
-    Quadtree quadtree;
+    Quadtree quadtree("GeoGrid");
     if (!quadtree.is_ok())
       throw std::string("quadtree initialization failed!");
     
@@ -89,9 +89,9 @@ int main() {
       throw std::string("planet initialization failed!");
 
     // Initialize Geographic grid:
-    Grid gGrid(input.get_nLonsGeo(),
-	           input.get_nLatsGeo(),
-	           input.get_nAltsGeo(),
+    Grid gGrid(input.get_nLons("GeoGrid"),
+	           input.get_nLats("GeoGrid"),
+	           input.get_nAlts("GeoGrid"),
 	           nGeoGhosts);
     DidWork = gGrid.init_geo_grid(quadtree, planet);
 

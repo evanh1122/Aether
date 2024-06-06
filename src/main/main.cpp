@@ -156,8 +156,9 @@ int main() {
     // Initialize ion temperatures from neutral temperature (on Test Grid)
     ionsTest.init_ion_temperature(neutralsTest, testGrid);
 
-    //if (neutrals.temperature_scgc.at(20) == neutralsTest.temperature_scgc.at(20)) std::cout << "EQUAL!!" << endl << endl;
-    std::cout << iGrid << endl << endl;
+    gGrid.report_grid_boundaries();
+    testGrid.report_grid_boundaries();
+    std::cout << endl << endl;
 
     // Initialize electrodynamics and check if electrodynamics times
     // works with input time
